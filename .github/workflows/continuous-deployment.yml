@@ -44,6 +44,9 @@ jobs:
         repository: 'fabiossena/terraform-aws-eks-apps'
         token: ${{ secrets.PAT }}
 
+    - name: Test
+      run: ls
+
     - name: Kustomize Edit
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
