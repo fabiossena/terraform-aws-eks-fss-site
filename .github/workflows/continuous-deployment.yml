@@ -49,8 +49,12 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
         kustomize edit set image $REGISTRY/$REPOSITORY=$REGISTRY/$REPOSITORY:$IMAGE_TAG
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
         git add ./kustomization.yml
         git commit -m "[BOT] Changing image to $REGISTRY/$REPOSITORY:$IMAGE_TAG"
         git push
+
+      
+      # git config user.name "github-actions[bot]"
+      # git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
